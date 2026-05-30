@@ -22,11 +22,20 @@ export default function AppTabs() {
       <TabSlot style={{ height: '100%' }} />
       <TabList asChild>
         <CustomTabList>
-          <TabTrigger name="home" href="/" asChild>
-            <TabButton>Home</TabButton>
+          <TabTrigger name="index" href="/" asChild>
+            <TabButton>Snippets</TabButton>
           </TabTrigger>
-          <TabTrigger name="explore" href="/explore" asChild>
-            <TabButton>Explore</TabButton>
+          <TabTrigger name="favorites" href={"/favorites" as any} asChild>
+            <TabButton>Favorites</TabButton>
+          </TabTrigger>
+          <TabTrigger name="create" href={"/create" as any} asChild>
+            <TabButton>Create</TabButton>
+          </TabTrigger>
+          <TabTrigger name="files" href={"/files" as any} asChild>
+            <TabButton>Files</TabButton>
+          </TabTrigger>
+          <TabTrigger name="settings" href={"/settings" as any} asChild>
+            <TabButton>Settings</TabButton>
           </TabTrigger>
         </CustomTabList>
       </TabList>
@@ -56,7 +65,7 @@ export function CustomTabList(props: TabListProps) {
     <View {...props} style={styles.tabListContainer}>
       <ThemedView type="backgroundElement" style={styles.innerContainer}>
         <ThemedText type="smallBold" style={styles.brandText}>
-          Expo Starter
+          DevSnippets
         </ThemedText>
 
         {props.children}
