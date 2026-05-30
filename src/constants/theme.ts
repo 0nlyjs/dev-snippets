@@ -9,18 +9,20 @@ import { Platform } from 'react-native';
 
 export const Colors = {
   light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
+    text: '#1E1B4B', // Deep indigo night text (highly legible)
+    background: '#FAF9FF', // Delicate lavender mist iridescent canvas
+    backgroundElement: 'rgba(255, 255, 255, 0.78)', // Crisp semi-translucent white glass
+    backgroundSelected: 'rgba(99, 102, 241, 0.14)', // Soft indigo-purple active glass tint
+    textSecondary: '#6366F1', // Royal indigo highlight secondary text
+    borderColor: 'rgba(99, 102, 241, 0.12)', // Delicate purple-tinted glass border
   },
   dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
+    text: '#F5F3FF', // Ice-lavender glowing text (soothing to read)
+    background: '#090714', // Deep space dark-violet background
+    backgroundElement: 'rgba(22, 19, 49, 0.58)', // Rich translucent deep purple-indigo glass
+    backgroundSelected: 'rgba(139, 92, 246, 0.28)', // Glowing active violet glass tint
+    textSecondary: '#A5B4FC', // Ethereal lavender-indigo secondary text
+    borderColor: 'rgba(139, 92, 246, 0.18)', // Subtle glowing purple glass border
   },
 } as const;
 

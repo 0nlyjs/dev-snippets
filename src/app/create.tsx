@@ -168,7 +168,7 @@ export default function CreateOrEditSnippetScreen() {
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea} edges={['top', 'left', 'right']}>
         {/* Header Title */}
-        <View style={styles.header}>
+        <View style={[styles.header, { borderBottomColor: theme.borderColor }]}>
           <Pressable onPress={() => router.back()} style={({ pressed }) => [styles.backButton, pressed && styles.pressed]}>
             <SymbolView
               name={{ ios: 'chevron.left', android: 'arrow_back', web: 'arrow_back' }}
@@ -207,7 +207,7 @@ export default function CreateOrEditSnippetScreen() {
               placeholderTextColor={theme.textSecondary}
               value={title}
               onChangeText={setTitle}
-              style={[styles.input, { color: theme.text, backgroundColor: theme.backgroundElement }]}
+              style={[styles.input, { color: theme.text, backgroundColor: theme.backgroundElement, borderColor: theme.borderColor }]}
             />
           </View>
 
@@ -254,7 +254,7 @@ export default function CreateOrEditSnippetScreen() {
                 placeholderTextColor={theme.textSecondary}
                 value={customLanguage}
                 onChangeText={setCustomLanguage}
-                style={[styles.input, styles.customLangInput, { color: theme.text, backgroundColor: theme.backgroundElement }]}
+                style={[styles.input, styles.customLangInput, { color: theme.text, backgroundColor: theme.backgroundElement, borderColor: theme.borderColor }]}
               />
             )}
           </View>
@@ -278,6 +278,7 @@ export default function CreateOrEditSnippetScreen() {
                 { 
                   color: '#D0D4DA', 
                   backgroundColor: '#151618',
+                  borderColor: theme.borderColor,
                   fontFamily: Platform.select({ ios: 'Courier New', android: 'monospace', default: 'monospace' })
                 }
               ]}
@@ -295,7 +296,7 @@ export default function CreateOrEditSnippetScreen() {
               value={tagsStr}
               onChangeText={setTagsStr}
               autoCapitalize="none"
-              style={[styles.input, { color: theme.text, backgroundColor: theme.backgroundElement }]}
+              style={[styles.input, { color: theme.text, backgroundColor: theme.backgroundElement, borderColor: theme.borderColor }]}
             />
           </View>
 

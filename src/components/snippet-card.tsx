@@ -63,7 +63,7 @@ export function SnippetCard({ snippet, onFavoriteChange }: SnippetCardProps) {
 
   return (
     <Pressable onPress={handlePress} style={({ pressed }) => [styles.cardContainer, pressed && styles.pressed]}>
-      <ThemedView type="backgroundElement" style={styles.card}>
+      <ThemedView type="backgroundElement" style={[styles.card, { borderColor: theme.borderColor }]}>
         <View style={styles.header}>
           <View style={styles.titleWrapper}>
             <View style={[styles.langDot, { backgroundColor: getLanguageColor(snippet.language) }]} />

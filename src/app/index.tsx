@@ -73,7 +73,7 @@ export default function HomeScreen() {
         </View>
 
         {/* Search Field */}
-        <View style={[styles.searchContainer, { backgroundColor: theme.backgroundElement }]}>
+        <View style={[styles.searchContainer, { backgroundColor: theme.backgroundElement, borderColor: theme.borderColor }]}>
           <SymbolView
             name={{ ios: 'magnifyingglass', android: 'search', web: 'search' }}
             tintColor={theme.textSecondary}

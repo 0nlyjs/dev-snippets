@@ -17,10 +17,12 @@ import {
 } from '@/services/storage';
 import { Spacing, MaxContentWidth, BottomTabInset } from '@/constants/theme';
 import { useTheme } from '@/hooks/use-theme';
+import { useAppTheme } from '@/context/theme-context';
 
 export default function SettingsScreen() {
   const theme = useTheme();
   const safeAreaInsets = useSafeAreaInsets();
+  const { setTheme } = useAppTheme();
 
   const [activeTheme, setActiveTheme] = useState<AppTheme>('system');
   const [activeProvider, setActiveProvider] = useState<AiProvider>('none');
@@ -66,7 +68,7 @@ export default function SettingsScreen() {
 
   const handleSaveTheme = async (themePref: AppTheme) => {
     try {
-      await setThemePreference(themePref);
+      await setTheme(themePref);
       setActiveTheme(themePref);
       Alert.alert('Theme Updated', 'Your visual theme preference has been saved.');
     } catch (e) {
@@ -115,7 +117,7 @@ export default function SettingsScreen() {
             App Appearance
           </ThemedText>
           
-          <View style={[styles.card, { backgroundColor: theme.backgroundElement }]}>
+          <View style={[styles.card, { backgroundColor: theme.backgroundElement, borderColor: theme.borderColor }]}>
             <View style={styles.buttonGroup}>
               {(['light', 'dark', 'system'] as AppTheme[]).map((themeVal) => {
                 const isActive = activeTheme === themeVal;
@@ -143,7 +145,7 @@ export default function SettingsScreen() {
             AI Assistant Service
           </ThemedText>
           
-          <View style={[styles.card, { backgroundColor: theme.backgroundElement }]}>
+          <View style={[styles.card, { backgroundColor: theme.backgroundElement, borderColor: theme.borderColor }]}>
             <View style={styles.buttonGroup}>
               {(['gemini', 'openai', 'anthropic', 'none'] as AiProvider[]).map((providerVal) => {
                 const isActive = activeProvider === providerVal;
@@ -178,7 +180,7 @@ export default function SettingsScreen() {
           </ThemedText>
 
           {/* Gemini */}
-          <View style={[styles.card, { backgroundColor: theme.backgroundElement }, styles.keyCard]}>
+          <View style={[styles.card, { backgroundColor: theme.backgroundElement, borderColor: theme.borderColor }, styles.keyCard]}>
             <View style={styles.keyCardHeader}>
               <ThemedText type="smallBold" style={styles.keyLabel}>
                 Google Gemini Key
@@ -190,7 +192,7 @@ export default function SettingsScreen() {
               </Pressable>
             </View>
             
-            <View style={styles.inputWrapper}>
+            <View style={[styles.inputWrapper, { borderColor: theme.borderColor }]}>
               <TextInput
                 secureTextEntry={!showGemini}
                 value={geminiKey}
@@ -210,7 +212,7 @@ export default function SettingsScreen() {
           </View>
 
           {/* OpenAI */}
-          <View style={[styles.card, { backgroundColor: theme.backgroundElement }, styles.keyCard]}>
+          <View style={[styles.card, { backgroundColor: theme.backgroundElement, borderColor: theme.borderColor }, styles.keyCard]}>
             <View style={styles.keyCardHeader}>
               <ThemedText type="smallBold" style={styles.keyLabel}>
                 OpenAI GPT Key
@@ -222,7 +224,7 @@ export default function SettingsScreen() {
               </Pressable>
             </View>
             
-            <View style={styles.inputWrapper}>
+            <View style={[styles.inputWrapper, { borderColor: theme.borderColor }]}>
               <TextInput
                 secureTextEntry={!showOpenai}
                 value={openaiKey}
@@ -242,7 +244,7 @@ export default function SettingsScreen() {
           </View>
 
           {/* Anthropic */}
-          <View style={[styles.card, { backgroundColor: theme.backgroundElement }, styles.keyCard]}>
+          <View style={[styles.card, { backgroundColor: theme.backgroundElement, borderColor: theme.borderColor }, styles.keyCard]}>
             <View style={styles.keyCardHeader}>
               <ThemedText type="smallBold" style={styles.keyLabel}>
                 Anthropic Claude Key
@@ -254,7 +256,7 @@ export default function SettingsScreen() {
               </Pressable>
             </View>
             
-            <View style={styles.inputWrapper}>
+            <View style={[styles.inputWrapper, { borderColor: theme.borderColor }]}>
               <TextInput
                 secureTextEntry={!showAnthropic}
                 value={anthropicKey}

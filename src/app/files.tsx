@@ -160,7 +160,7 @@ export default function FileManagerScreen() {
           <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.rootGrid}>
             <Pressable
               onPress={() => handleFolderPress('snippets')}
-              style={({ pressed }) => [styles.folderCard, { backgroundColor: theme.backgroundElement }, pressed && styles.pressed]}>
+              style={({ pressed }) => [styles.folderCard, { backgroundColor: theme.backgroundElement, borderColor: theme.borderColor }, pressed && styles.pressed]}>
               <View style={[styles.folderIconWrapper, { backgroundColor: 'rgba(2, 132, 245, 0.1)' }]}>
                 <SymbolView
                   name={{ ios: 'folder.fill', android: 'folder', web: 'folder' }}
@@ -178,7 +178,7 @@ export default function FileManagerScreen() {
 
             <Pressable
               onPress={() => handleFolderPress('screenshots')}
-              style={({ pressed }) => [styles.folderCard, { backgroundColor: theme.backgroundElement }, pressed && styles.pressed]}>
+              style={({ pressed }) => [styles.folderCard, { backgroundColor: theme.backgroundElement, borderColor: theme.borderColor }, pressed && styles.pressed]}>
               <View style={[styles.folderIconWrapper, { backgroundColor: 'rgba(76, 175, 80, 0.1)' }]}>
                 <SymbolView
                   name={{ ios: 'photo.on.rectangle.angled.fill', android: 'photo_library', web: 'photo_library' }}
@@ -196,7 +196,7 @@ export default function FileManagerScreen() {
 
             <Pressable
               onPress={() => handleFolderPress('templates')}
-              style={({ pressed }) => [styles.folderCard, { backgroundColor: theme.backgroundElement }, pressed && styles.pressed]}>
+              style={({ pressed }) => [styles.folderCard, { backgroundColor: theme.backgroundElement, borderColor: theme.borderColor }, pressed && styles.pressed]}>
               <View style={[styles.folderIconWrapper, { backgroundColor: 'rgba(255, 193, 7, 0.1)' }]}>
                 <SymbolView
                   name={{ ios: 'doc.text.fill', android: 'description', web: 'description' }}
@@ -238,7 +238,7 @@ export default function FileManagerScreen() {
               renderItem={({ item }) => {
                 const isImage = ['jpg', 'jpeg', 'png', 'webp'].includes(item.name.split('.').pop()?.toLowerCase() || '');
                 return (
-                  <View style={[styles.fileRow, { backgroundColor: theme.backgroundElement }]}>
+                  <View style={[styles.fileRow, { backgroundColor: theme.backgroundElement, borderColor: theme.borderColor }]}>
                     <View style={styles.fileIconTextWrapper}>
                       {isImage ? (
                         <Image source={{ uri: item.uri }} style={styles.fileThumbnail} />

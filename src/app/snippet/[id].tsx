@@ -260,7 +260,7 @@ export default function SnippetDetailsScreen() {
               <View style={styles.actionsPanel}>
                 <Pressable
                   onPress={handleExport}
-                  style={({ pressed }) => [styles.actionButton, { backgroundColor: theme.backgroundElement }, pressed && styles.pressed]}>
+                  style={({ pressed }) => [styles.actionButton, { backgroundColor: theme.backgroundElement, borderColor: theme.borderColor }, pressed && styles.pressed]}>
                   <SymbolView
                     name={{ ios: 'square.and.arrow.up', android: 'share', web: 'share' }}
                     tintColor={theme.text}
@@ -303,7 +303,7 @@ export default function SnippetDetailsScreen() {
               {/* AI Explanation Tab */}
               {aiExplanation ? (
                 <View style={styles.aiExplanationWrapper}>
-                  <View style={[styles.aiExplanationCard, { backgroundColor: theme.backgroundElement }]}>
+                  <View style={[styles.aiExplanationCard, { backgroundColor: theme.backgroundElement, borderColor: theme.borderColor }]}>
                     <View style={styles.aiCardHeader}>
                       <View style={styles.aiLabelRow}>
                         <SymbolView
